@@ -10,7 +10,6 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
 public class ClassUtil {
-
 	public static void main(String[] args) throws Exception {
 		String packageName = "com.yangming.entity";
 		// List<String> classNames = getClassName(packageName);
@@ -81,7 +80,6 @@ public class ClassUtil {
 				}
 			}
 		}
-
 		return myClassName;
 	}
 
