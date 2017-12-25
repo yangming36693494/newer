@@ -45,9 +45,7 @@ import com.mysql.jdbc.Connection;
 /**
  * 进行管理后台框架界面的类
  * 
- * @author yangming 2015-04-05
  * @version 3.0v
- * @mod Ekko 2015-09-07
  */
 @Controller
 @RequestMapping("/")
@@ -161,7 +159,6 @@ public class BackgroundController extends BaseController {
 
 	@RequestMapping("download")
 	public void download(String fileName, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
 		response.setContentType("text/html;charset=utf-8");
 		request.setCharacterEncoding("UTF-8");
 		java.io.BufferedInputStream bis = null;
@@ -203,7 +200,6 @@ public class BackgroundController extends BaseController {
 
 	@RequestMapping("install")
 	public String install() throws Exception {
-
 		try {
 			Properties props = Resources.getResourceAsProperties("jdbc.properties");
 			String url = props.getProperty("jdbc.url");
@@ -216,12 +212,10 @@ public class BackgroundController extends BaseController {
 			runner.setErrorLogWriter(null);
 			runner.setLogWriter(null);
 			runner.runScript((new InputStreamReader(getClass().getResourceAsStream("/intall.sql"), "UTF-8")));
-
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "初始化失败！请联系管理员" + e;
 		}
 		return "/install";
 	}
-
 }
